@@ -6,7 +6,7 @@ function LoadName(pl) {
     }, 25000);
 }
 function command(pl, comm) {
-    runcmdExe('give "'+pl.name+'" clock');
+    mc.runcmdEx('give "'+pl.name+'" clock');
     pl.tell('§l§d[Clock] §e你的钟已发放!');
     return false;
 }

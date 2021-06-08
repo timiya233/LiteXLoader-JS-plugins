@@ -4,15 +4,15 @@ if (haveq == null) {
     file.createDir('.\\plugins\\destroy');
 	let normal = { "显示在哪": "sidebar" };
 	let Json = JSON.stringify(normal, null, "\t");
-	runcmdEx('scoreboard objectives add phb dummy §l§b破坏榜');
-	runcmdEx('scoreboard objectives add phbf dummy');
+	mc.runcmdEx('scoreboard objectives add phb dummy §l§b破坏榜');
+	mc.runcmdEx('scoreboard objectives add phbf dummy');
 	file.write('plugins\\destroy\\configure.json', Json);
 	log('第一次加载破坏榜插件，配置文件已生成置.\\plugins\\destroy\\configure.json')
 };
 let open = file.read('plugins\\destroy\\configure.json');
 let jsonopen = JSON.parse(open);
 let info = jsonopen["显示在哪"];
-runcmd('scoreboard objectives setdisplay '+info+' phb');
+mc.runcmd('scoreboard objectives setdisplay '+info+' phb');
 function destroy(pl, bl) {
     let shu = pl.getScore('phbf') + 1;
     pl.setScore('phbf', shu)

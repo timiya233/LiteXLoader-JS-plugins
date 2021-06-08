@@ -6,11 +6,11 @@ function load() {
 };
 function tpr(pl, comm) {
     var zb = fu(je).split(",");
-    runcmdEx('execute "' + pl.name + '" ~~~ tp @s '+zb[0]+' '+zb[1]+' '+zb[2]);
-    runcmdEx('effect "' + pl.name + '" resistance 30 10 true');
-    runcmdEx('effect "' + pl.name + '" slow_falling 30 1 true');
-    runcmdEx('effect "' + pl.name + '" Fire_Resistance 30 1 true');
-    runcmdEx('effect "' + pl.name + '" Water_Breathing 30 1 true');
+    mc.runcmdEx('execute "' + pl.name + '" ~~~ tp @s '+zb[0]+' '+zb[1]+' '+zb[2]);
+    mc.runcmdEx('effect "' + pl.name + '" resistance 30 10 true');
+    mc.runcmdEx('effect "' + pl.name + '" slow_falling 30 1 true');
+    mc.runcmdEx('effect "' + pl.name + '" Fire_Resistance 30 1 true');
+    mc.runcmdEx('effect "' + pl.name + '" Water_Breathing 30 1 true');
     pl.tell('§l§a[TPR] §e已将您传送置§e'+zb[0]+','+zb[1]+','+zb[2]);
     return false;
 };
