@@ -13,5 +13,5 @@ function command(pl, comm) {
 
 function load() {
     mc.listen("onJoin",LoadName)
-    mc.regPlayerCmd('/clock','§l§e获得钟&Get clock',command,0)
+    mc.regPlayerCmd('clock','§l§e获得钟&Get clock',command,0)
 }

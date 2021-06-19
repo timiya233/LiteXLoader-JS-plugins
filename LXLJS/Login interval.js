@@ -1,11 +1,3 @@
-var have = file.read('plugins/Login/Logininterval.json');
-if (have == null) {
-    var lg = {"lgt":{"sz":[{"id":"player","logout":0}]}}
-    var jz = JSON.stringify(lg);
-    file.createDir('.\\plugins\\Login');
-    file.write('plugins/Login/Logininterval.json', jz);
-    log('首次加载Login interval插件 数据json文件已保存于BDS根目录/Logininterval.json')
-}
 mc.listen('onJoin', function (pl) {
     var lg = file.read('plugins/Login/Logininterval.json');
     var lgj = JSON.parse(lg);
@@ -56,5 +48,14 @@ mc.listen('onLeft', function (pl) {
         }
     }
 });
-
-log('Login interval >> 登入时间间隔插件加载完成 | by siyue')
+mc.listen('onServerStarted', function () {
+    var have = file.read('plugins/Login/Logininterval.json');
+    if (have == null) {
+        var lg = { "lgt": { "sz": [{ "id": "player", "logout": 0 }] } }
+        var jz = JSON.stringify(lg);
+        file.createDir('.\\plugins\\Login');
+        file.write('plugins/Login/Logininterval.json', jz);
+        log('首次加载Login interval插件 数据json文件已保存于BDS根目录/Logininterval.json')
+    }
+    log('Login interval >> 登入时间间隔插件加载完成 | by siyue')
+})

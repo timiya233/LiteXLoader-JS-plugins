@@ -18,4 +18,4 @@ mc.listen("onJoin", function (pl) {
 mc.listen('onLeft', function (pl) {
 	tmp[pl.name] -= 1;
 });
-O('PTSN 加载成功!版本:0.2')
+log('PTSN 加载成功!版本:0.2');
