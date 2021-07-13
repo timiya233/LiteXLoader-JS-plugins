@@ -5,7 +5,7 @@ function load() {
     log('[INFO][tpr]作者 提米吖');
 };
 function tpr(pl, comm) {
-    var zb = fu(je).split(",");
+    var zb = fu(pl).split(",");
     mc.runcmdEx('execute "' + pl.name + '" ~~~ tp @s '+zb[0]+' '+zb[1]+' '+zb[2]);
     mc.runcmdEx('effect "' + pl.name + '" resistance 30 10 true');
     mc.runcmdEx('effect "' + pl.name + '" slow_falling 30 1 true');
@@ -15,26 +15,32 @@ function tpr(pl, comm) {
     return false;
 };
 //运算部分
-function rando(je) {
+function rando(pl) {
     var x = Math.floor(Math.random() * 10000);
-    if (je.dimensionid == 0) {
+    if (pl.pos.dimid == 0) {
         var y = 120;
-    } else if (je.dimensionid == 1) {
+    } else if (pl.pos.dimid == 1) {
         var y = 90;
-    } else if (je.dimensionid >= 1) {
+    } else if (pl.pos.dimid >= 1) {
         var y = 150;
     };
     var z = Math.floor(Math.random() * 10000);
     return x+','+y+','+z;
 };
-function fu(je) {
-    var p = Math.floor(Math.random() * 2);
-    var zhi = rando(je).split(",");
+function fu(pl) {
+    var p = Math.floor(Math.random() * 4);
+    var zhi = rando(pl).split(",");
     if (p == 0) {
         return zhi[0]+','+zhi[1]+','+zhi[2];
     }
     if (p == 1) {
-            return -zhi[0]+','+zhi[1]+',-'+zhi[2];
+        return -zhi[0]+','+zhi[1]+',-'+zhi[2];
+    }
+    if (p == 2) {
+        return zhi[0]+','+zhi[1]+',-'+zhi[2];
+    }
+    if (p == 3) {
+        return -zhi[0]+','+zhi[1]+','+zhi[2];
     }
 };
 load();
