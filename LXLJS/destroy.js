@@ -13,14 +13,14 @@ function tongbu(pl) {
     mc.runcmdEx('execute @a ~ ~ ~ scoreboard players operation @s phb = @s phbf');
 };
 function load() {
-    let haveq = file.read('plugins\\destroy\\configure.json');
+    let haveq = file.readFrom('plugins\\destroy\\configure.json');
     if (haveq == null) {
         file.createDir('.\\plugins\\destroy');
         let normal = { "显示在哪": "sidebar" };
         let Json = JSON.stringify(normal, null, "\t");
         mc.runcmdEx('scoreboard objectives add phb dummy §l§b破坏榜');
         mc.runcmdEx('scoreboard objectives add phbf dummy');
-        file.write('plugins\\destroy\\configure.json', Json);
+        file.writeTo('plugins\\destroy\\configure.json', Json);
         log('第一次加载破坏榜插件，配置文件已生成置.\\plugins\\destroy\\configure.json')
     }
     let open = file.read('plugins\\destroy\\configure.json');
