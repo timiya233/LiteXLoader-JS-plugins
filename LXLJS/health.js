@@ -10,11 +10,11 @@ function healths() {
 };
 
 mc.listen("onServerStarted", function () {
-    var have = file.read('.\\plugins\\health\\health.txt');
+    var have = file.readFrom('.\\plugins\\health\\health.txt');
     if (have == null) {
         var jz = '加载完成';
         file.createDir('.\\plugins\\health');
-        file.write('.\\plugins\\health\\health.txt', jz);
+        file.writeTo('.\\plugins\\health\\health.txt', jz);
         mc.runcmdEx('scoreboard objectives add syhealth dummy §l§chealth');
         mc.runcmdEx('scoreboard objectives setdisplay belowname syhealth');
         log('[health]首次加载血量显示插件 前置记分板已创建');

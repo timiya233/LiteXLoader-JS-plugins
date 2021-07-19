@@ -100,21 +100,21 @@ function CPSPAN(player, cps) {
 
 //读取配置
 function READ(type) {
-    var ha = file.read(DISPLAY);
+    var ha = file.readFrom(DISPLAY);
     if (ha == null) {
         file.createDir(PATH);
-        file.write(DISPLAY, '{}');
-        ha = file.read(DISPLAY);
+        file.writeTo(DISPLAY, '{}');
+        ha = file.readFrom(DISPLAY);
     };
     tmpdisplay = JSON.parse(ha);
-    var havez = file.read(CONFIGURE);
+    var havez = file.readFrom(CONFIGURE);
     if (havez == null) {
         file.createDir(PATH);
         let xie = { "防止使用连点器": true, "多少cps踢出玩家": "40", "超出多少秒之后踢出": "4" };
         let Json = JSON.stringify(xie, null, "\t");
-        file.write(CONFIGURE, Json);
+        file.writeTo(CONFIGURE, Json);
         log('无法读取配置!自动将配置文件生成置' + PATH);
-        havez = file.read(CONFIGURE);
+        havez = file.readFrom(CONFIGURE);
     };
     let jr = JSON.parse(havez);
     if (jr["防止使用连点器"] == true) {
@@ -138,7 +138,7 @@ function READ(type) {
 //写出玩家DISPLAY配置文件
 function save() {
     let Json = JSON.stringify(tmpdisplay, null, "\t");
-    file.write(DISPLAY, Json);
+    file.writeTo(DISPLAY, Json);
     log('[CPS]已保存玩家设置');
 }
 
